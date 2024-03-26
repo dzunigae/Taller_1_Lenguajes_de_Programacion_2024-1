@@ -20,6 +20,10 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos)
 **ent:** Definición de una variable con un entero.  
 **real:** Definición de una variable con un real.  
 **str:** Definición de una variable con un string.  
+**si:** Equivalente al if.  
+**sino:** Equivalente al else.  
+**caso:** Equivalente a switch. 
+**mientras:** Equivalente a for 
 
 # Operaciones
 **=:** Asignación  
