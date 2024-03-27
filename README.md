@@ -53,7 +53,16 @@ Conjuntos (Podríamos decir que sets)
 **datos_tratamiento:** Función especial que da el total de datos del tratamiento.
 **conjunto_datos:** Función especial que da el conjunto de todos de datos del modelo de dos vías de clasificación.  
 **conjunto_datos_bloque:** Función especial que da el conjunto de todos los datos del bloque.  
-**conjunto_datos_tratamiento:** Función especial que da el conjunto de todos los datos del tratamiento.
+**conjunto_datos_tratamiento:** Función especial que da el conjunto de todos los datos del tratamiento.  
+**numero_rachas_hasta_dato:** Función especial que da el número de rachas que se forman hasta la ubicación del dato especificado.  
+**rachas_celda:** Función especial que da el número de rachas en la celda especificada.  
+**promedio_rachas_celda:** Función especial que da el promedio de rachas en la celda especificada.
+**rachas_bloque:** Función especial que da la suma del número de rachas en el bloque especificado.
+**rachas_tratamiento:** Función especial que da la suma del número de rachas en el tratamiento especificado.
+**promedio_rachas_bloque:** Función especial que da el promedio de rachas en el bloque especificado.
+**promedio_rachas_tratamiento:** Función especial que da el promedio de rachas en el tratamiento especificado.
+**rachas_modelo:** Función especial que da la suma del número de rachas de todo el modelo.
+**promedio_rachas_modelo:** Función especial que da el promedio del número de rachas de todo el modelo.
 
 # Operaciones
 **=:** Asignación  
