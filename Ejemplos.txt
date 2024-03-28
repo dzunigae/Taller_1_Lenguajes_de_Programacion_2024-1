@@ -9,10 +9,71 @@ comentario #
 
 ## La estructura es la siguiente: variables globales, funciones y main
 
-entero numero_1 = 11
-real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99 # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
-arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]] # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
-arreglo arreglo_y[4] = [] # Declaración implicita de un arreglo con 4 posiciones.
+## Declaraciones de datos y estructuras de datos comunes
+entero numero_1 = 11;
+real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
+arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
+arreglo arreglo_y[4] = []; # Declaración implicita de un arreglo con 4 posiciones.
+
+## Declaraciones de datos especiales de teoría de rachas
+racha racha_x = "uuuuu";
+modelo modelo_x{
+    alfa: 4.7,
+    beta: [5.4, -9.2],
+    tau: [-7.4, 1.2, 0.58],
+    delta[
+        1-1: [15.9,-4.0,66.1],
+        1-2: [-6.1,3.9],
+        1-3: [4.2,-1.3,12.4,5.8],
+        2-1: [23.8],
+        2-2: [4.5,3.6,-0.5],
+        2-3: [2.2,-5.6]
+    ]
+};
+alfabeto alfabeto_x{d,f,r,g,t,y,u};
+
+## Declaraciones por defecto de modelos y alfabetos
+modelo modelo_y{};
+## Alfa tendrá valor por defecto 0.0, los demás atributos al ser arreglos, se debe especificar su tamaño.
+modelo_y.beta[7];
+modelo_y.tau[7];
+modelo_y.delta[7][7];
+## También se puede de la siguiente manera:
+modelo_y.beta[7].tau[7].delta[7][7]
+## El alfabeto vacío tendrá esta forma
+alfabeto alfabeto_y{};
+## Para añadir alfo al alfabeto vacío se usa .add
+## No es necesario especificar nada del símbolo.
+alfabeto_y.add(a);
+alfabeto_y.add(b);
+alfabeto_y.add(c);
+alfabeto_y.add(d);
+alfabeto_y.add(e);
+alfabeto_y.add(f);
+alfabeto_y.add(g);
+alfabeto_y.add(h);
+alfabeto_y.add(i);
+# Explicación:
+Para cambiar el modelo, se puede asignar a él ún único valor una única vez, como por ejemplo lo siguiente: #
+modelo_y.alfa = 9.0;
+modelo_y.beta = [1.0,2.0,3.0,4.0,5.0,6.0,7.0];
+modelo_y.tau = [1.0,2.0,3.0,4.0,5.0,6.0,7.0];
+modelo_y.delta = [
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0],
+    [1.0,2.0,3.0,4.0,5.0,6.0,7.0]
+]; ## Con delta, los datos se acomodan de forma automática en el modelo.
+## Para acceder a valores de celdas, filas o columnas, es de la siguiente manera.
+## Celda 1-1
+modelo_y.delta.1-1;
+## Fila 1
+modelo_y.delta.1--;
+## Columna 1
+modelo_y.delta.--1;
 
 funcion nada mostrar_valor(entero x){
     mostrar(x);
@@ -39,9 +100,9 @@ funcion arreglo switch(arreglo x){
     }
 }
 
-# Esta función sólo modificará una variable
+## Esta función sólo modificará una variable
 funcion nada ciclos(arreglo x, arreglo y){
-    cadena string = ""; # Cadena vacía
+    cadena string = ""; ## Cadena vacía
     entero i = 0;
 
     # Forma 1
@@ -67,3 +128,84 @@ funcion nada ciclos(arreglo x, arreglo y){
 
     retornar nada;
 }
+
+## Función de relaciones para valores y alfabeto
+funcion cadena alfabeto_y_valores(arreglo valores, alfabeto relacionado){
+    para(i = 0 hasta i == tamaño(valores)){
+        si(valores >= 0.0 y valores < 5.0){
+            retornar relacionado.posicion[0];
+        }sino si(valores >= 5.0 y valores < 7.0){
+            retornar relacionado.posicion[1];
+        }sino si(valores >= 7.0 y valores < 9.0){
+            retornar relacionado.posicion[2];
+        }sino si(valores >= 9.0 y valores < 10.0){
+            retornar relacionado.posicion[3];
+        }
+    }
+}
+
+inicio_main
+    ## Ejecución de funciones antes declaradas
+
+    mostrar_valor(numero_1);
+    real real_1 = if(numero_x);
+    arreglo arreglo_1 = switch(arreglo_x);
+    ciclos(arreglo_x,arreglo_y);
+
+    ## Ejecución de funciones especiales de la teoría de rachas
+
+    cadena cosa = "aaaahhhhhhyyyyuuuujjjjkkkkkmmmmllllssssooop";
+    arreglo valores = [4.0,5.6,7.8,9.0];
+    alfabeto alfabeto_relacionado{a,b,c,d};
+
+    ## Proceso de multicotomización
+    cadena cadena_multicotomizada = multicotomizacion(valores,alfabeto_relacionado,alfabeto_y_valores);
+
+    ## Función contadora
+    ## Recibe la cadena y la posición del símbolo hasta el cual hacer el proceso.
+    entero a = numero_rachas_hasta_dato(cosa,15); # Creo que es lo mismo que la función contadora.
+
+    ## Función que da el número de datos del modelo.
+    entero b = datos_modelo(modelo_x);
+
+    ## Función especial que da el total de datos del bloque especificado.
+    ## Recibe, además del modelo, el bloque específico, todas las funciones con funcionamiento similar son de esta forma.
+    entero c = datos_bloque(modelo_x,2);
+
+    ## Función especial que da el total de datos del tratamiento.
+    entero d = datos_tratamiento(modelo_x,2);
+
+    ## Función especial que da el conjunto de todos los datos del modelo de dos vías de clasificación.
+    arreglo e = conjunto_datos(modelo_x);
+
+    ## Función especial que da el conjunto de todos los datos del bloque.
+    arreglo f = conjunto_datos_bloque(modelo_x,2);
+
+    ## Función especial que da el conjunto de todos los datos del tratamiento.
+    arreglo g = conjunto_datos_tratamiento(modelo_x,2);
+
+    ## Función especial que da el número de rachas en la celda especificada.
+    ## Se recibe la coordenada completa.
+    entero h = rachas_celda(modelo_x,2,2);
+
+    ## Función especial que da el promedio de rachas en la celda especificada.
+    real i = promedio_rachas_celda(modelo_x,2,2);
+
+    ## Función especial que da la suma del número de rachas en el bloque especificado.
+    entero j = rachas_bloque(modelo_x,2);
+
+    ## Función especial que da la suma del número de rachas en el tratamiento especificado.
+    entero k = rachas_tratamiento(modelo_x,2);
+
+    ## Función especial que da el promedio de rachas en el bloque especificado.
+    real l = promedio_rachas_bloque(modelo_x,2);
+
+    ## Función especial que da el promedio de rachas en el tratamiento especificado.
+    real m = promedio_rachas_tratamiento(modelo_x,2);
+
+    ## Función especial que da la suma del número de rachas de todo el modelo.
+    entero n = rachas_modelo(modelo_x);
+
+    ## Función especial que da el promedio del número de rachas de todo el modelo.
+    real o = promedio_rachas_modelo(modelo_x);
+fin_main

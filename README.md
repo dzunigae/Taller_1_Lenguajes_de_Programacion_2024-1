@@ -2,6 +2,8 @@
 No existen las mayúsculas en este lenguaje, en caso de haber, se considerarán un error.  
 Las variables tienen scope dependiendo de la estructura dentro de la cual fueron declaradas.
 El tamaño de los arreglos es inmutable una vez definidos.  
+Alfa, beta, tau y delta sólo pueden ser declaradas dentro de un modelo.  
+Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos.  
 
 # Datos primitivos soportados
 Entero (Incluye - para negativos, no soporta + para positivos)  
@@ -12,7 +14,6 @@ Booleano (Aunque no se pueden declarar explicitamente)
 
 # Estructuras de datos soportadas
 Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, soportan cualquier tipo de dato, se debe declarar su tamaño, el cual puede ser multidimensional)  
-Conjuntos (Podríamos decir que sets)  
 
 # Operaciones
 **=:** Asignación  
@@ -57,12 +58,11 @@ Conjuntos (Podríamos decir que sets)
 **entero:** Definición de una variable con un entero.  
 **real:** Definición de una variable con un real.  
 **arreglo:** Definición de una variable que será un arreglo.  
+**cadena:** Definición de una cadena, la cual sería un string.  
 
 ## Declaraciones de datos (teoría de rachas)
 **racha:** Definición de una racha, la cual sería un string.  
 **alfabeto:** Definición de un alfabeto, el cual sería un arreglo.  
-**cadena:** Definición de una cadena, la cual sería un string.  
-**conjunto:** Definición de un conjunto, el cual sería un set de enteros o reales.  
 **categoria:** En sí las letras que componen el alfabeto, son char.  
 **alfa:** Definición del parámetro efecto del modelo (Es un real)  
 **tau:** Definición del parámetro efectos de los tratamientos (Es un arreglo)  
@@ -70,23 +70,20 @@ Conjuntos (Podríamos decir que sets)
 **delta:** Definición de la matriz de los datos del modelo (Es un arreglo multidimensional)  
 **modelo:** Definición de lo que sería un modelo.  
 
-## No sé si estas deberían incluirse
-**bloque:** Definición de lo que sería un bloque de una matriz (Es un arreglo multidimensional)  
-**tratamiento:** Definición de lo que sería un tratamiento de una matriz (Es un arreglo multidimensional) 
+## Operaciones sobre los datos de la teoría de rachas
+**add:** Para añadir un nuevo símbolo al alfabeto.  
+**posicion:** Para obtener un símbolo del alfabeto.  
 
-## Estructuras de inicio y finalización de bloques de código
+## Estructuras de inicio y finalización del bloque principal
 **inicio_main:** Inicio de la secuencia principal del programa.  
 **fin_main:** Final de la secuencia principal del programa.  
-**inicio_funcion:** Inicio del bloque de código que corresponde a una función anteriormente definida.  
-**fin_funcion:** Final del bloque de código que corresponde a una función anteriormente definida.  
 
 ## Funciones propias de la teoría de rachas
 **multicotomizacion:** Función especial de multicotomizacion.  
-**contadora:** Función especial contadora de la cadena multicotomizada.  
 **datos_modelo:** Función especial que da el total de datos del modelo de dos vías de clasificación.  
 **datos_bloque:** Función especial que da el total de datos del bloque.  
 **datos_tratamiento:** Función especial que da el total de datos del tratamiento.
-**conjunto_datos:** Función especial que da el conjunto de todos de datos del modelo de dos vías de clasificación.  
+**conjunto_datos:** Función especial que da el conjunto de todos los datos del modelo de dos vías de clasificación.  
 **conjunto_datos_bloque:** Función especial que da el conjunto de todos los datos del bloque.  
 **conjunto_datos_tratamiento:** Función especial que da el conjunto de todos los datos del tratamiento.  
 **numero_rachas_hasta_dato:** Función especial que da el número de rachas que se forman hasta la ubicación del dato especificado.  
