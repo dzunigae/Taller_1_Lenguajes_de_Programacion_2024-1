@@ -1,0 +1,69 @@
+//Estructura
+
+## Esta línea es un comentario
+# Esto
+también 
+es 
+un 
+comentario #
+
+## La estructura es la siguiente: variables globales, funciones y main
+
+entero numero_1 = 11
+real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99 # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
+arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]] # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
+arreglo arreglo_y[4] = [] # Declaración implicita de un arreglo con 4 posiciones.
+
+funcion nada mostrar_valor(entero x){
+    mostrar(x);
+    retornar nada;
+}
+
+funcion real if(real x){
+    si((x == 9.0 o x <= 3.1*8.9) y x >= 0.0){
+        retornar x*x;
+    }sino{
+        retornar 0.0;
+    }
+}
+
+funcion arreglo switch(arreglo x){
+    cadena string = tipo(x[0]);
+    caso(string){
+        string == "entero":
+            retornar [string,string+1];
+        string == "real":
+            retornar [0.0,0.0];
+        string == "arreglo":
+            retornar string;
+    }
+}
+
+# Esta función sólo modificará una variable
+funcion nada ciclos(arreglo x, arreglo y){
+    cadena string = ""; # Cadena vacía
+    entero i = 0;
+
+    # Forma 1
+    repita{
+        y[i] = x[i];
+        i = i + 1;
+    }mientras(i < tamaño(x))
+
+    i = 0;
+
+    # Forma 2
+    mientras(i < tamaño(x)){
+        y[i] = x[i];
+        i = i + 1;
+    }
+
+    # Forma 3
+    para(i = 0 hasta i == tamaño(x)){
+        y[i] = x[i];
+    }
+
+    y[tamaño[y] - 1] = string;
+
+    retornar nada;
+}
