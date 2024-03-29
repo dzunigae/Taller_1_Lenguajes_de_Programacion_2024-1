@@ -1,6 +1,6 @@
 ## Ejemplo de cómo se escribiría el Algoritmo 1-1 en este lenguaje
 
-alfabeto alfabeto_común{a,b,c}; ## 3 símbolos, 3 tratamientos.
+alfabeto alfabeto_común{'a','b','c'}; ## 3 símbolos, 3 tratamientos.
 
 modelo modelo_x{
     alfa: 4.7,

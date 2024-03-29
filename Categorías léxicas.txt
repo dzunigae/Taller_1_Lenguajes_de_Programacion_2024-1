@@ -1,0 +1,21 @@
+Identificadores
+
+Palabras clave
+
+Enteros
+
+Reales
+
+Cadenas (strings)
+
+Caracteres
+
+Operadores aritméticos
+
+Operadores relacionales
+
+Operador de asignación
+
+Delimitadores
+
+Comentarios (No genera tokens)

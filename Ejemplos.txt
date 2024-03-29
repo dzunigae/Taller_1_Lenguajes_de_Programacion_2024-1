@@ -28,7 +28,7 @@ modelo modelo_x{
         2-3: [2.2,-5.6]
     ]
 };
-alfabeto alfabeto_x{d,f,r,g,t,y,u};
+alfabeto alfabeto_x{'d','f','r','g','t','y','u'};
 
 ## Declaraciones por defecto de modelos y alfabetos
 modelo modelo_y{};
@@ -42,15 +42,15 @@ modelo_y.beta[7].tau[7].delta[7][7]
 alfabeto alfabeto_y{};
 ## Para añadir alfo al alfabeto vacío se usa .add
 ## No es necesario especificar nada del símbolo.
-alfabeto_y.add(a);
-alfabeto_y.add(b);
-alfabeto_y.add(c);
-alfabeto_y.add(d);
-alfabeto_y.add(e);
-alfabeto_y.add(f);
-alfabeto_y.add(g);
-alfabeto_y.add(h);
-alfabeto_y.add(i);
+alfabeto_y.add('a');
+alfabeto_y.add('b');
+alfabeto_y.add('c');
+alfabeto_y.add('d');
+alfabeto_y.add('e');
+alfabeto_y.add('f');
+alfabeto_y.add('g');
+alfabeto_y.add('h');
+alfabeto_y.add('i');
 # Explicación:
 Para cambiar el modelo, se puede asignar a él ún único valor una única vez, como por ejemplo lo siguiente: #
 modelo_y.alfa = 9.0;
@@ -156,7 +156,7 @@ inicio_main
 
     cadena cosa = "aaaahhhhhhyyyyuuuujjjjkkkkkmmmmllllssssooop";
     arreglo valores = [4.0,5.6,7.8,9.0];
-    alfabeto alfabeto_relacionado{a,b,c,d};
+    alfabeto alfabeto_relacionado{'a','b','c','d'};
 
     ## Proceso de multicotomización
     cadena cadena_multicotomizada = multicotomizacion(valores,alfabeto_relacionado,alfabeto_y_valores);

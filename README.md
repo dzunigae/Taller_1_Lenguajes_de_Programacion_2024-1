@@ -15,23 +15,37 @@ Booleano (Aunque no se pueden declarar explicitamente)
 # Estructuras de datos soportadas
 Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, soportan cualquier tipo de dato, se debe declarar su tamaño, el cual puede ser multidimensional)  
 
-# Operaciones
+# Operación de asignación
 **=:** Asignación  
+
+# Operaciones aritméticas
 **+:** Suma  
 **-:** Resta  
 ***:** Multiplicación  
+**\*\*:** Potenciación  
 **/:** División  
 **div:** División entera  
 **mod:** Operador módulo  
-**():** Agrupación de expresiones  
+
+# Operaciones lógicas
 **y:** "y" lógico  
 **o:** "o" lógico  
+**no:** negación lógica  
+
+# operaciones relaciones
 **==:** Operador igual que  
 **<:** Operador menor que  
 **>:** Operador mayor que  
-**<=:** Operador menor que  
-**>=:** Operador mayor que  
+**<=:** Operador menor igual que  
+**>=:** Operador mayor igual que  
 **!=:** Operador distinto que  
+
+# Delimitadores
+**()**  
+**{}**  
+**[]**  
+**;**  
+**,**  
 
 # Vocabulario
 
