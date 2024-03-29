@@ -78,6 +78,11 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **inicio_main:** Inicio de la secuencia principal del programa.  
 **fin_main:** Final de la secuencia principal del programa.  
 
+## Funciones especiales
+**ordenar_mayor:** Función especial que ordena un arreglo de mayor a menor.  
+**ordenar_menor:** Función especial que ordena un arreglo de menor a mayor.  
+
+
 ## Funciones propias de la teoría de rachas
 **multicotomizacion:** Función especial de multicotomizacion.  
 **datos_modelo:** Función especial que da el total de datos del modelo de dos vías de clasificación.  
