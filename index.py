@@ -17,9 +17,9 @@ tokens = (
 # Expresiones regulares para tokens simples
 
 # Identificadores
-def t_ID(t):
-    r'[a-z_][a-z0-9_]*'
-    return t
+#def t_ID(t):
+#    r'[a-z_][a-z0-9_]*'
+#    return t
 
 # Palabras clave
 vocabulario = {
@@ -76,9 +76,14 @@ vocabulario = {
     'no':'NO'
 }
 
-def t_KEYWORD(t):
-    r'\b(?:' + '|'.join(vocabulario.keys()) + r')\b'
-    t.type = vocabulario.get(t.value, 'ID')
+#def t_KEYWORD(t):
+#    r'\b(?:' + '|'.join(vocabulario.keys()) + r')\b'
+#    t.type = vocabulario.get(t.value, 'ID')
+#    return t
+
+def t_ID(t):
+    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
 # Entero
@@ -146,11 +151,11 @@ def t_DELIMITER(t):
 
 # Comentarios
 def t_COMMENT(t):
-    r'##.*'
+    r'\#\#.*'
     pass  # Ignorar comentarios de una línea
 
 def t_COMMENT_BLOCK(t):
-    r'#.*?#'
+    r'\#.*?\#'
     pass  # Ignorar comentarios de bloque
 
 ###################################################################
@@ -179,7 +184,16 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-    suma = 10 + 20 * 30
+    
+    ## Esta línea es un comentario
+    # Esto
+    también 
+    es 
+    un 
+    comentario #
+
+    ## La estructura es la siguiente: variables globales, funciones y main
+
     """
 
     # Darle entrada al lexer
