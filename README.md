@@ -3,14 +3,15 @@ No existen las mayúsculas en este lenguaje, en caso de haber, se considerarán 
 Las variables tienen scope dependiendo de la estructura dentro de la cual fueron declaradas.
 El tamaño de los arreglos es inmutable una vez definidos.  
 Alfa, beta, tau y delta sólo pueden ser declaradas dentro de un modelo.  
-Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos.  
+Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos?.  
+Una variable no puede ser nombrada empezando con un número.  
 
 # Datos primitivos soportados
 Entero (Incluye - para negativos, no soporta + para positivos)  
 Real (Incluye - para negativos, no soporta + para positivos)  
 string (Símbolos entre "", son las rachas y cadenas.)  
 Char (Símbolos cualquieras, no es necesario que estén entre comillas ni nada, son las categorías.)
-Booleano (Aunque no se pueden declarar explicitamente)  
+Booleano (Está en discusión incluír la posibilidad de declararlo)  
 
 # Estructuras de datos soportadas
 Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, soportan cualquier tipo de dato, se debe declarar su tamaño, el cual puede ser multidimensional)  
@@ -47,11 +48,11 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **;**  
 **,**  
 
-# Vocabulario
-
-## Comentarios
+# Comentarios
 **##:** Comentario de línea.  
 **# #:** Comentario de bloque.  
+
+# Vocabulario
 
 ## Estructuras propias de los lenguajes imperativos
 **mostrar:** Equivalente a print.  
@@ -66,7 +67,7 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **retornar:** Valor de retorno de una función.  
 **nada:** Palabra especial para poner en el retorno que hace que la función no retorne nada.  
 **tipo:** Función que devuelve el tipo de dato de una variable.  
-**tamaño:** Función que devuleve el tamaño de un arreglo.
+**tamaño:** Función que devuelve el tamaño de un arreglo.
 
 ## Declaraciones de datos (normales)
 **entero:** Definición de una variable con un entero.  

@@ -81,6 +81,7 @@ vocabulario = {
 #    t.type = vocabulario.get(t.value, 'ID')
 #    return t
 
+#Quitar opción de mayúsculas
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
@@ -98,7 +99,7 @@ def t_FLOAT(t):
     t.value = float(t.value)  # Convertir el valor del token a flotante
     return t
 
-# Cadena
+# Cadena 
 def t_STRING(t):
     r'"[^"]*"'
     t.value = t.value[1:-1]  # Eliminar comillas del valor del token
@@ -185,14 +186,10 @@ if __name__ == "__main__":
     # Datos de entrada
     data = """
     
-    ## Esta línea es un comentario
-    # Esto
-    también 
-    es 
-    un 
-    comentario #
-
-    ## La estructura es la siguiente: variables globales, funciones y main
+    entero numero_1 = 11;
+    real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
+    arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
+    arreglo arreglo_y[4] = []; # Declaración implicita de un arreglo con 4 posiciones.
 
     """
 
