@@ -6,6 +6,8 @@ Alfa, beta, tau y delta sólo pueden ser declaradas dentro de un modelo.
 Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos?.  
 Una variable no puede ser nombrada empezando con un número.  
 
+Nuestro lenguaje puede ser de tipo abstracto.  
+
 # Datos primitivos soportados
 Entero (Incluye - para negativos, no soporta + para positivos)  
 Real (Incluye - para negativos, no soporta + para positivos)  
@@ -47,6 +49,9 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **[]**  
 **;**  
 **,**  
+
+# Llamado de atributos o métodos
+**.**
 
 # Comentarios
 **##:** Comentario de línea.  
@@ -115,3 +120,7 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **promedio_rachas_tratamiento:** Función especial que da el promedio de rachas en el tratamiento especificado.  
 **rachas_modelo:** Función especial que da la suma del número de rachas de todo el modelo.  
 **promedio_rachas_modelo:** Función especial que da el promedio del número de rachas de todo el modelo.  
+
+
+
+# Consejo del profesor: Mejorar la forma de definir los modelos

@@ -18,4 +18,4 @@ Operador de asignación
 
 Delimitadores
 
-Comentarios (No genera tokens)
+Comentarios (Se genera un token sin acción)

@@ -87,6 +87,7 @@ def t_ID(t):
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
+# Recomendación del profesor: Aceptar también notación científica (Revisar cuando hizo algo parecido en las clases)
 # Entero
 def t_INTEGER(t):
     r'-?\d+'
