@@ -120,7 +120,3 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **promedio_rachas_tratamiento:** Función especial que da el promedio de rachas en el tratamiento especificado.  
 **rachas_modelo:** Función especial que da la suma del número de rachas de todo el modelo.  
 **promedio_rachas_modelo:** Función especial que da el promedio del número de rachas de todo el modelo.  
-
-
-
-# Consejo del profesor: Mejorar la forma de definir los modelos

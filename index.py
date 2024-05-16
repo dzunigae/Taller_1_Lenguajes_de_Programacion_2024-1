@@ -11,7 +11,8 @@ tokens = (
     'ARITHMETIC_OPERATOR',
     'RELATIONAL_OPERATOR',
     'ASSIGNMENT_OPERATOR',
-    'DELIMITER'
+    'DELIMITER',
+    'CALL'
 )
 
 # Expresiones regulares para tokens simples
@@ -81,13 +82,12 @@ vocabulario = {
 #    t.type = vocabulario.get(t.value, 'ID')
 #    return t
 
-#Quitar opción de mayúsculas
+#Identificadores y palabras reservadas
 def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    r'[a-z_][a-z0-9_]*'
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
-# Recomendación del profesor: Aceptar también notación científica (Revisar cuando hizo algo parecido en las clases)
 # Entero
 def t_INTEGER(t):
     r'-?\d+'
@@ -151,6 +151,11 @@ def t_DELIMITER(t):
     r'[\(\)\{\}\[\],;]'
     return t
 
+# Llamado de métodos o atributos
+def t_CALL(t):
+    r'\.'
+    return t
+
 # Comentarios
 def t_COMMENT(t):
     r'\#\#.*'
@@ -188,9 +193,8 @@ if __name__ == "__main__":
     data = """
     
     entero numero_1 = 11;
-    real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
-    arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
-    arreglo arreglo_y[4] = []; # Declaración implicita de un arreglo con 4 posiciones.
+
+    numero.hola
 
     """
 
