@@ -159,25 +159,14 @@ def t_CALL(t):
 # Comentarios
 def t_COMMENT(t):
     r'\#\#.*'
-    pass  # Ignorar comentarios de una línea
+    pass
 
 def t_COMMENT_BLOCK(t):
     r'\#.*?\#'
-    pass  # Ignorar comentarios de bloque
-
-###################################################################
-
-############# Falta revisar de aquí hacia abajo ###################
-
-###################################################################
+    pass  # Ignorar el comentario
 
 # Ignorar espacios y tabulaciones
-t_ignore = ' \t'
-
-# Regla para manejar saltos de línea
-def t_newline(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
+t_ignore = ' \t\n'
 
 # Manejo de errores
 def t_error(t):
@@ -191,10 +180,12 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-    
-    entero numero_1 = 11;
 
-    numero.hola
+    # Esto
+    también 
+    es 
+    un 
+    comentario #
 
     """
 
