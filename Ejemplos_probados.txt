@@ -1,0 +1,11 @@
+## Esta línea es un comentario
+# Esto
+también 
+es 
+un 
+comentario #
+
+## La estructura es la siguiente: variables globales, funciones y main
+
+## Declaraciones de datos y estructuras de datos comunes
+entero numero_1 = 11;

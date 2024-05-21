@@ -88,16 +88,16 @@ def t_ID(t):
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
-# Entero
-def t_INTEGER(t):
-    r'-?\d+'
-    t.value = int(t.value)  # Convertir el valor del token a entero
-    return t
-
 # Real
 def t_FLOAT(t):
     r'-?\d+\.\d+'  # El signo "-" es opcional
     t.value = float(t.value)  # Convertir el valor del token a flotante
+    return t
+
+# Entero
+def t_INTEGER(t):
+    r'-?\d+'
+    t.value = int(t.value)  # Convertir el valor del token a entero
     return t
 
 # Cadena 
@@ -180,13 +180,7 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-    entero
-    # Esto
-    también 
-    es 
-    un 
-    comentario #
-    entero
+real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
     """
 
     # Darle entrada al lexer
