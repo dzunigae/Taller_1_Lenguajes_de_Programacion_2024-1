@@ -162,7 +162,7 @@ def t_COMMENT(t):
     pass
 
 def t_COMMENT_BLOCK(t):
-    r'\#.*?\#'
+    r'\#[\s\S]*?\#'
     pass  # Ignorar el comentario
 
 # Ignorar espacios y tabulaciones
@@ -180,13 +180,13 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-
+    entero
     # Esto
     también 
     es 
     un 
     comentario #
-
+    entero
     """
 
     # Darle entrada al lexer

@@ -1,4 +1,3 @@
-2. Los comentarios generan un token sin acción, implementarlo.
 3. Terminar y probar todo el análisis como fue pensado inicialmente.
 4. Expandir y reformular en caso de ser necesario, el cómo tratamos los números, para aceptar la notación científica.
 5. Hay que revisar la forma como definimos modelos, en caso de que requiera ajustes.
