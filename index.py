@@ -8,142 +8,143 @@ tokens = (
     'FLOAT',
     'STRING',
     'CHARACTER',
-    'ARITHMETIC_OPERATOR',
-    'RELATIONAL_OPERATOR',
-    'ASSIGNMENT_OPERATOR',
+    'MAS',  # +
+    'RESTA',  # -
+    'MULTIPLICACION',  # *
+    'POTENCIACION',  # **
+    'DIVISION',  # /
+    'IGUAL_QUE',  # ==
+    'MENOR_QUE',  # <
+    'MAYOR_QUE',  # >
+    'MENOR_IGUAL_QUE',  # <=
+    'MAYOR_IGUAL_QUE',  # >=
+    'DISTINTO_QUE',  # !=
+    'ASSIGNMENT_OPERATOR',  # =
+    'ASSIGMENT_OPERATOR_MODEL', # :
     'DELIMITER',
     'CALL'
 )
 
 # Expresiones regulares para tokens simples
 
-# Identificadores
-#def t_ID(t):
-#    r'[a-z_][a-z0-9_]*'
-#    return t
-
-# Palabras clave
+# Identificadores y palabras reservadas
 vocabulario = {
-    'mostrar':'MOSTRAR',
-    'si':'SI',
-    'sino':'SINO',
-    'caso':'CASO',
-    'mientras':'MIENTRAS',
-    'repita':'REPITA',
-    'para':'PARA',
-    'hasta':'HASTA',
-    'funcion':'FUNCION',
-    'retornar':'RETORNAR',
-    'nada':'NADA',
-    'tipo':'TIPO',
-    'tamaño':'TAMAÑO',
-    'entero':'ENTERO',
-    'real':'REAL',
-    'arreglo':'ARREGLO',
-    'cadena':'CADENA',
-    'racha':'RACHA',
-    'alfabeto':'ALFABETO',
-    'categoria':'CATEGORIA',
-    'alfa':'ALFA',
-    'tau':'TAU',
-    'beta':'BETA',
-    'delta':'DELTA',
-    'modelo':'MODELO',
-    'add':'ADD',
-    'posicion':'POSICION',
-    'inicio_main':'INICIO',
-    'fin_main':'FIN',
-    'ordenar_mayor':'O_MAYOR',
-    'ordenar_menor':'O_MENOR',
-    'multicotomizacion':'MULTICOTOMIZACION',
-    'datos_modelo':'DATOS_MODELO',
-    'datos_tratamiento':'DATOS_TRATAMIENTO',
-    'conjunto_datos':'CONJUNTO_DATOS',
-    'conjunto_datos_bloque':'CONJUNTO_DATOS_BLOQUE',
-    'conjunto_datos_tratamiento':'CONJUNTO_DATOS_TRATAMIENTO',
-    'numero_rachas_hasta_dato':'NUMERO_RACHAS_HASTA_DATO',
-    'rachas_celda':'RACHAS_CELDA',
-    'promedio_rachas_celda':'PROMEDIO_RACHAS_CELDA',
-    'rachas_bloque':'RACHAS_BLOQUE',
-    'rachas_tratamiento':'RACHAS_TRATAMIENTO',
-    'promedio_rachas_bloque':'PROMEDIO_RACHAS_BLOQUE',
-    'promedio_rachas_tratamiento':'PROMEDIO_RACHAS_TRATAMIENTO',
-    'rachas_modelo':'RACHAS_MODELO',
-    'promedio_rachas_modelo':'PROMEDIO_RACHAS_MODELO',
-    'y':'Y',
-    'o':'O',
-    'div':'DIV',
-    'mod':'MOD',
-    'no':'NO'
+    'mostrar': 'MOSTRAR',
+    'si': 'SI',
+    'sino': 'SINO',
+    'caso': 'CASO',
+    'mientras': 'MIENTRAS',
+    'repita': 'REPITA',
+    'para': 'PARA',
+    'hasta': 'HASTA',
+    'funcion': 'FUNCION',
+    'retornar': 'RETORNAR',
+    'nada': 'NADA',
+    'tipo': 'TIPO',
+    'tamaño': 'TAMAÑO',
+    'entero': 'ENTERO',
+    'real': 'REAL',
+    'arreglo': 'ARREGLO',
+    'cadena': 'CADENA',
+    'racha': 'RACHA',
+    'alfabeto': 'ALFABETO',
+    'categoria': 'CATEGORIA',
+    'alfa': 'ALFA',
+    'tau': 'TAU',
+    'beta': 'BETA',
+    'delta': 'DELTA',
+    'modelo': 'MODELO',
+    'add': 'ADD',
+    'posicion': 'POSICION',
+    'inicio_main': 'INICIO',
+    'fin_main': 'FIN',
+    'ordenar_mayor': 'O_MAYOR',
+    'ordenar_menor': 'O_MENOR',
+    'multicotomizacion': 'MULTICOTOMIZACION',
+    'datos_modelo': 'DATOS_MODELO',
+    'datos_tratamiento': 'DATOS_TRATAMIENTO',
+    'conjunto_datos': 'CONJUNTO_DATOS',
+    'conjunto_datos_bloque': 'CONJUNTO_DATOS_BLOQUE',
+    'conjunto_datos_tratamiento': 'CONJUNTO_DATOS_TRATAMIENTO',
+    'numero_rachas_hasta_dato': 'NUMERO_RACHAS_HASTA_DATO',
+    'rachas_celda': 'RACHAS_CELDA',
+    'promedio_rachas_celda': 'PROMEDIO_RACHAS_CELDA',
+    'rachas_bloque': 'RACHAS_BLOQUE',
+    'rachas_tratamiento': 'RACHAS_TRATAMIENTO',
+    'promedio_rachas_bloque': 'PROMEDIO_RACHAS_BLOQUE',
+    'promedio_rachas_tratamiento': 'PROMEDIO_RACHAS_TRATAMIENTO',
+    'rachas_modelo': 'RACHAS_MODELO',
+    'promedio_rachas_modelo': 'PROMEDIO_RACHAS_MODELO',
+    'y': 'Y',
+    'o': 'O',
+    'div': 'DIV',
+    'mod': 'MOD',
+    'no': 'NO'
 }
 
-#def t_KEYWORD(t):
-#    r'\b(?:' + '|'.join(vocabulario.keys()) + r')\b'
-#    t.type = vocabulario.get(t.value, 'ID')
-#    return t
-
-#Identificadores y palabras reservadas
 def t_ID(t):
     r'[a-z_][a-z0-9_]*'
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
+# Mover FLOAT antes de INTEGER
 # Real
 def t_FLOAT(t):
-    r'-?\d+\.\d+'  # El signo "-" es opcional
-    t.value = float(t.value)  # Convertir el valor del token a flotante
+    r'-?\d+\.\d+'
+    t.value = float(t.value)
     return t
 
 # Entero
 def t_INTEGER(t):
     r'-?\d+'
-    t.value = int(t.value)  # Convertir el valor del token a entero
+    t.value = int(t.value)
     return t
 
-# Cadena 
+# Cadena
 def t_STRING(t):
     r'"[^"]*"'
-    t.value = t.value[1:-1]  # Eliminar comillas del valor del token
+    t.value = t.value[1:-1]
     return t
 
 # Caracter
 def t_CHARACTER(t):
     r"'[^']'"
-    t.value = t.value[1]  # Obtener el caracter sin las comillas
+    t.value = t.value[1]
     return t
 
 # Operadores aritméticos
-operadores_aritmeticos = {
-    '+':'MAS',
-    '-':'RESTA',
-    '*':'MULTIPLICACION',
-    '**':'POTENCIACION',
-    '/':'DIVISION',
-}
-
 def t_ARITHMETIC_OPERATOR(t):
     r'\+|-|\*|\*\*|/'
-    t.type = operadores_aritmeticos.get(t.value)
+    t.type = {
+        '+': 'MAS',
+        '-': 'RESTA',
+        '*': 'MULTIPLICACION',
+        '**': 'POTENCIACION',
+        '/': 'DIVISION'
+    }.get(t.value)
     return t
 
 # Operadores relacionales
-operadores_relacionales = {
-    '==':'IGUAL_QUE',
-    '<':'MENOR_QUE',
-    '>':'MAYOR_QUE',
-    '<=':'MENOR_IGUAL_QUE',
-    '>=':'MAYOR_IGUAL_QUE',
-    '!=':'DISTINTO_QUE'
-}
-
 def t_RELATIONAL_OPERATOR(t):
     r'==|<|>|<=|>=|!='
-    t.type = operadores_relacionales.get(t.value)
+    t.type = {
+        '==': 'IGUAL_QUE',
+        '<': 'MENOR_QUE',
+        '>': 'MAYOR_QUE',
+        '<=': 'MENOR_IGUAL_QUE',
+        '>=': 'MAYOR_IGUAL_QUE',
+        '!=': 'DISTINTO_QUE'
+    }.get(t.value)
     return t
 
 # Operador de asignación
 def t_ASSIGNMENT_OPERATOR(t):
     r'='
+    return t
+
+# Operador de asignación dentro de un modelo
+def ASSIGMENT_OPERATOR_MODEL(t):
+    r':'
     return t
 
 # Delimitadores
@@ -163,7 +164,7 @@ def t_COMMENT(t):
 
 def t_COMMENT_BLOCK(t):
     r'\#[\s\S]*?\#'
-    pass  # Ignorar el comentario
+    pass
 
 # Ignorar espacios y tabulaciones
 t_ignore = ' \t\n'
@@ -180,7 +181,22 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
+## Declaraciones de datos especiales de teoría de rachas
+racha racha_x = "uuuuu";
+modelo modelo_x{
+    alfa: 4.7,
+    beta: [5.4, -9.2],
+    tau: [-7.4, 1.2, 0.58],
+    delta[
+        1-1: [15.9,-4.0,66.1],
+        1-2: [-6.1,3.9],
+        1-3: [4.2,-1.3,12.4,5.8],
+        2-1: [23.8],
+        2-2: [4.5,3.6,-0.5],
+        2-3: [2.2,-5.6]
+    ]
+};
+alfabeto alfabeto_x{'d','f','r','g','t','y','u'};
     """
 
     # Darle entrada al lexer

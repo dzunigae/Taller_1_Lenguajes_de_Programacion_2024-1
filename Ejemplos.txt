@@ -1,7 +1,3 @@
-real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; # Los números reales deben tener si o si el "punto" que los distingue de los enteros.
-arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; # Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
-arreglo arreglo_y[4] = []; # Declaración implicita de un arreglo con 4 posiciones.
-
 ## Declaraciones de datos especiales de teoría de rachas
 racha racha_x = "uuuuu";
 modelo modelo_x{
@@ -94,7 +90,7 @@ funcion nada ciclos(arreglo x, arreglo y){
     cadena string = ""; ## Cadena vacía
     entero i = 0;
 
-    # Forma 1
+    ## Forma 1
     repita{
         y[i] = x[i];
         i = i + 1;
@@ -102,13 +98,13 @@ funcion nada ciclos(arreglo x, arreglo y){
 
     i = 0;
 
-    # Forma 2
+    ## Forma 2
     mientras(i < tamaño(x)){
         y[i] = x[i];
         i = i + 1;
     }
 
-    # Forma 3
+    ## Forma 3
     para(i = 0 hasta i == tamaño(x)){
         y[i] = x[i];
     }
@@ -152,7 +148,7 @@ inicio_main
 
     ## Función contadora
     ## Recibe la cadena y la posición del símbolo hasta el cual hacer el proceso.
-    entero a = numero_rachas_hasta_dato(cosa,15); # Creo que es lo mismo que la función contadora.
+    entero a = numero_rachas_hasta_dato(cosa,15); ## Creo que es lo mismo que la función contadora.
 
     ## Función que da el número de datos del modelo.
     entero b = datos_modelo(modelo_x);
