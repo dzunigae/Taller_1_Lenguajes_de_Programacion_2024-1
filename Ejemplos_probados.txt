@@ -80,3 +80,133 @@ funcion nada mostrar_valor(entero x){
     mostrar(x);
     retornar nada;
 }
+
+funcion real if(real x){
+    si((x == 9.0 o x <= 3.1*8.9) y x >= 0.0){
+        retornar x*x;
+    }sino{
+        retornar 0.0;
+    }
+}
+
+funcion arreglo switch(arreglo x){
+    cadena string = tipo(x[0]);
+    caso(string){
+        string == "entero":
+            retornar [string,string+1];
+        string == "real":
+            retornar [0.0,0.0];
+        string == "arreglo":
+            retornar string;
+    }
+}
+
+## Esta función sólo modificará una variable
+funcion nada ciclos(arreglo x, arreglo yy){
+    cadena string = ""; ## Cadena vacía
+    entero i = 0;
+
+    ## Forma 1
+    repita{
+        yy[i] = x[i];
+        i = i + 1;
+    }mientras(i < tamaño(x))
+
+    i = 0;
+
+    ## Forma 2
+    mientras(i < tamaño(x)){
+        yy[i] = x[i];
+        i = i + 1;
+    }
+
+    ## Forma 3
+    para(i = 0 hasta i == tamaño(x)){
+        yy[i] = x[i];
+    }
+
+    y[tamaño[yy] - 1] = string;
+
+    retornar nada;
+}
+
+## Función de relaciones para valores y alfabeto
+funcion cadena alfabeto_y_valores(arreglo valores, alfabeto relacionado){
+    para(i = 0 hasta i == tamaño(valores)){
+        si(valores >= 0.0 y valores < 5.0){
+            retornar relacionado.posicion[0];
+        }sino si(valores >= 5.0 y valores < 7.0){
+            retornar relacionado.posicion[1];
+        }sino si(valores >= 7.0 y valores < 9.0){
+            retornar relacionado.posicion[2];
+        }sino si(valores >= 9.0 y valores < 10.0){
+            retornar relacionado.posicion[3];
+        }
+    }
+}
+
+inicio_main
+    ## Ejecución de funciones antes declaradas
+
+    mostrar_valor(numero_1);
+    real real_1 = if(numero_x);
+    arreglo arreglo_1 = switch(arreglo_x);
+    ciclos(arreglo_x,arreglo_y);
+
+    ## Ejecución de funciones especiales de la teoría de rachas
+
+    cadena cosa = "aaaahhhhhhyyyyuuuujjjjkkkkkmmmmllllssssooop";
+    arreglo valores = [4.0,5.6,7.8,9.0];
+    alfabeto alfabeto_relacionado{'a','b','c','d'};
+
+    ## Proceso de multicotomización
+    cadena cadena_multicotomizada = multicotomizacion(valores,alfabeto_relacionado,alfabeto_y_valores);
+
+    ## Función contadora
+    ## Recibe la cadena y la posición del símbolo hasta el cual hacer el proceso.
+    entero a = numero_rachas_hasta_dato(cosa,15); ## Creo que es lo mismo que la función contadora.
+
+    ## Función que da el número de datos del modelo.
+    entero b = datos_modelo(modelo_x);
+
+        ## Función especial que da el total de datos del bloque especificado.
+    ## Recibe, además del modelo, el bloque específico, todas las funciones con funcionamiento similar son de esta forma.
+    entero c = datos_bloque(modelo_x,2);
+
+    ## Función especial que da el total de datos del tratamiento.
+    entero d = datos_tratamiento(modelo_x,2);
+
+    ## Función especial que da el conjunto de todos los datos del modelo de dos vías de clasificación.
+    arreglo e = conjunto_datos(modelo_x);
+
+    ## Función especial que da el conjunto de todos los datos del bloque.
+    arreglo f = conjunto_datos_bloque(modelo_x,2);
+
+    ## Función especial que da el conjunto de todos los datos del tratamiento.
+    arreglo g = conjunto_datos_tratamiento(modelo_x,2);
+
+    ## Función especial que da el número de rachas en la celda especificada.
+    ## Se recibe la coordenada completa.
+    entero h = rachas_celda(modelo_x,2,2);
+
+    ## Función especial que da el promedio de rachas en la celda especificada.
+    real i = promedio_rachas_celda(modelo_x,2,2);
+
+    ## Función especial que da la suma del número de rachas en el bloque especificado.
+    entero j = rachas_bloque(modelo_x,2);
+
+    ## Función especial que da la suma del número de rachas en el tratamiento especificado.
+    entero k = rachas_tratamiento(modelo_x,2);
+
+    ## Función especial que da el promedio de rachas en el bloque especificado.
+    real l = promedio_rachas_bloque(modelo_x,2);
+
+    ## Función especial que da el promedio de rachas en el tratamiento especificado.
+    real m = promedio_rachas_tratamiento(modelo_x,2);
+
+    ## Función especial que da la suma del número de rachas de todo el modelo.
+    entero n = rachas_modelo(modelo_x);
+
+    ## Función especial que da el promedio del número de rachas de todo el modelo.
+    real o = promedio_rachas_modelo(modelo_x);
+fin_main

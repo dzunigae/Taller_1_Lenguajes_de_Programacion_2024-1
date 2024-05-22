@@ -1,4 +1,5 @@
-from ply import lex
+import ply.lex as lex
+import re
 
 # Definición de tokens
 tokens = (
@@ -20,7 +21,7 @@ tokens = (
     'MAYOR_IGUAL_QUE',  # >=
     'DISTINTO_QUE',  # !=
     'ASSIGNMENT_OPERATOR',  # =
-    'ASSIGMENT_OPERATOR_MODEL', # :
+    'COLON',  # :
     'DELIMITER',
     'CALL'
 )
@@ -82,8 +83,9 @@ vocabulario = {
     'no': 'NO'
 }
 
+# Modificar la expresión regular para incluir caracteres Unicode
 def t_ID(t):
-    r'[a-z_][a-z0-9_]*'
+    r'[a-zñ_][a-z0-9ñ_]*'
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
@@ -113,28 +115,49 @@ def t_CHARACTER(t):
     return t
 
 # Operadores aritméticos
-def t_ARITHMETIC_OPERATOR(t):
-    r'\+|-|\*\*|\*/'
-    t.type = {
-        '+': 'MAS',
-        '-': 'RESTA',
-        '**': 'POTENCIACION',
-        '*': 'MULTIPLICACION',
-        '/': 'DIVISION'
-    }.get(t.value)
+def t_MAS(t):
+    r'\+'
+    return t
+
+def t_RESTA(t):
+    r'-'
+    return t
+
+def t_MULTIPLICACION(t):
+    r'\*'
+    return t
+
+def t_POTENCIACION(t):
+    r'\*\*'
+    return t
+
+def t_DIVISION(t):
+    r'/'
     return t
 
 # Operadores relacionales
-def t_RELATIONAL_OPERATOR(t):
-    r'<=|>=|!=|==|<|>'
-    t.type = {
-        '<=': 'MENOR_IGUAL_QUE',
-        '>=': 'MAYOR_IGUAL_QUE',
-        '!=': 'DISTINTO_QUE',
-        '==': 'IGUAL_QUE',
-        '<': 'MENOR_QUE',
-        '>': 'MAYOR_QUE'
-    }.get(t.value)
+def t_MENOR_IGUAL_QUE(t):
+    r'<='
+    return t
+
+def t_MAYOR_IGUAL_QUE(t):
+    r'>='
+    return t
+
+def t_DISTINTO_QUE(t):
+    r'!='
+    return t
+
+def t_IGUAL_QUE(t):
+    r'=='
+    return t
+
+def t_MENOR_QUE(t):
+    r'<'
+    return t
+
+def t_MAYOR_QUE(t):
+    r'>'
     return t
 
 # Operador de asignación
@@ -142,8 +165,8 @@ def t_ASSIGNMENT_OPERATOR(t):
     r'='
     return t
 
-# Operador de asignación dentro de un modelo
-def t_ASSIGMENT_OPERATOR_MODEL(t):
+# Operador de dos puntos
+def t_COLON(t):
     r':'
     return t
 
@@ -181,13 +204,7 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-funcion real if(real x){
-    si((x == 9.0 o x <= 3.1*8.9) y x >= 0.0){
-        retornar x*x;
-    }sino{
-        retornar 0.0;
-    }
-}
+
     """
 
     # Darle entrada al lexer
@@ -199,3 +216,4 @@ funcion real if(real x){
         if not tok:
             break
         print(tok)
+

@@ -21,7 +21,7 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 # Operación de asignación
 **=:** Asignación  
 
-# Asignación dentro de modelo
+# Token Colon
 **:** Asignación dentro de modelo
 
 # Operaciones aritméticas
