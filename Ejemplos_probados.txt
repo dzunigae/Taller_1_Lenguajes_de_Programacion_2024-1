@@ -13,3 +13,41 @@ real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; ## Los números reales deben 
 arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; ## Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
 arreglo arreglo_y[4] = []; ## Declaración implicita de un arreglo con 4 posiciones.
 
+## Declaraciones de datos especiales de teoría de rachas
+racha racha_x = "uuuuu";
+modelo modelo_x{
+    alfa: 4.7,
+    beta: [5.4, -9.2],
+    tau: [-7.4, 1.2, 0.58],
+    delta[
+        [1][1]: [15.9,-4.0,66.1],
+        [1][2]: [-6.1,3.9],
+        [1][3]: [4.2,-1.3,12.4,5.8],
+        [2][1]: [23.8],
+        [2][2]: [4.5,3.6,-0.5],
+        [2][3]: [2.2,-5.6]
+    ]
+};
+alfabeto alfabeto_x{'d','f','r','g','t','y','u'};
+
+## Declaraciones por defecto de modelos y alfabetos
+modelo modelo_y{};
+## Alfa tendrá valor por defecto 0.0, los demás atributos al ser arreglos, se debe especificar su tamaño.
+modelo_y.beta[7];
+modelo_y.tau[7];
+modelo_y.delta[7][7];
+## También se puede de la siguiente manera:
+modelo_y.beta[7].tau[7].delta[7][7]
+## El alfabeto vacío tendrá esta forma
+alfabeto alfabeto_y{};
+## Para añadir alfo al alfabeto vacío se usa .add
+## No es necesario especificar nada del símbolo.
+alfabeto_y.add('a');
+alfabeto_y.add('b');
+alfabeto_y.add('c');
+alfabeto_y.add('d');
+alfabeto_y.add('e');
+alfabeto_y.add('f');
+alfabeto_y.add('g');
+alfabeto_y.add('h');
+alfabeto_y.add('i');
