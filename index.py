@@ -114,26 +114,26 @@ def t_CHARACTER(t):
 
 # Operadores aritméticos
 def t_ARITHMETIC_OPERATOR(t):
-    r'\+|-|\*|\*\*|/'
+    r'\+|-|\*\*|\*/'
     t.type = {
         '+': 'MAS',
         '-': 'RESTA',
-        '*': 'MULTIPLICACION',
         '**': 'POTENCIACION',
+        '*': 'MULTIPLICACION',
         '/': 'DIVISION'
     }.get(t.value)
     return t
 
 # Operadores relacionales
 def t_RELATIONAL_OPERATOR(t):
-    r'==|<|>|<=|>=|!='
+    r'<=|>=|!=|==|<|>'
     t.type = {
-        '==': 'IGUAL_QUE',
-        '<': 'MENOR_QUE',
-        '>': 'MAYOR_QUE',
         '<=': 'MENOR_IGUAL_QUE',
         '>=': 'MAYOR_IGUAL_QUE',
-        '!=': 'DISTINTO_QUE'
+        '!=': 'DISTINTO_QUE',
+        '==': 'IGUAL_QUE',
+        '<': 'MENOR_QUE',
+        '>': 'MAYOR_QUE'
     }.get(t.value)
     return t
 
@@ -181,25 +181,13 @@ lexer = lex.lex()
 if __name__ == "__main__":
     # Datos de entrada
     data = """
-## Alfa tendrá valor por defecto 0.0, los demás atributos al ser arreglos, se debe especificar su tamaño.
-modelo_y.beta[7];
-modelo_y.tau[7];
-modelo_y.delta[7][7];
-## También se puede de la siguiente manera:
-modelo_y.beta[7].tau[7].delta[7][7]
-## El alfabeto vacío tendrá esta forma
-alfabeto alfabeto_y{};
-## Para añadir alfo al alfabeto vacío se usa .add
-## No es necesario especificar nada del símbolo.
-alfabeto_y.add('a');
-alfabeto_y.add('b');
-alfabeto_y.add('c');
-alfabeto_y.add('d');
-alfabeto_y.add('e');
-alfabeto_y.add('f');
-alfabeto_y.add('g');
-alfabeto_y.add('h');
-alfabeto_y.add('i');
+funcion real if(real x){
+    si((x == 9.0 o x <= 3.1*8.9) y x >= 0.0){
+        retornar x*x;
+    }sino{
+        retornar 0.0;
+    }
+}
     """
 
     # Darle entrada al lexer
