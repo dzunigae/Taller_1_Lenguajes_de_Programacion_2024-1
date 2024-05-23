@@ -26,8 +26,6 @@ tokens = (
     'CALL'
 )
 
-# Expresiones regulares para tokens simples
-
 # Identificadores y palabras reservadas
 vocabulario = {
     'mostrar': 'MOSTRAR',
@@ -89,17 +87,19 @@ def t_ID(t):
     t.type = 'KEYWORD' if t.value in vocabulario else 'ID'
     return t
 
-# Mover FLOAT antes de INTEGER
-# Real
+# Real con notación científica
 def t_FLOAT(t):
-    r'-?\d+\.\d+'
+    r'-?\d+\.\d+([eE][-+]?\d+)?'
     t.value = float(t.value)
     return t
 
-# Entero
+# Entero con notación científica
 def t_INTEGER(t):
-    r'-?\d+'
-    t.value = int(t.value)
+    r'-?\d+([eE][-+]?\d+)?'
+    if 'e' in t.value or 'E' in t.value:
+        t.value = float(t.value)  # Convertir a float si tiene notación científica
+    else:
+        t.value = int(t.value)
     return t
 
 # Cadena
@@ -203,9 +203,13 @@ lexer = lex.lex()
 # Ejemplo de uso del lexer
 if __name__ == "__main__":
     # Datos de entrada
-    data = """
-
-    """
+    data = '''
+    mostrar 3.14
+    mostrar 2e10
+    mostrar 2.5E-4
+    mostrar 1E4
+    mostrar -5e+3
+    '''
 
     # Darle entrada al lexer
     lexer.input(data)
@@ -216,4 +220,3 @@ if __name__ == "__main__":
         if not tok:
             break
         print(tok)
-
