@@ -146,6 +146,13 @@ funcion cadena alfabeto_y_valores(arreglo valores, alfabeto relacionado){
 }
 
 inicio_main
+    ## Ejemplos de notación científica
+    mostrar(3.14)
+    mostrar(2e10)
+    mostrar(2.5E-4)
+    mostrar(1E4)
+    mostrar(-5e+3)
+
     ## Ejecución de funciones antes declaradas
 
     mostrar_valor(numero_1);

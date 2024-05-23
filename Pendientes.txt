@@ -1,2 +1,0 @@
-4. Expandir y reformular en caso de ser necesario, el cómo tratamos los números, para aceptar la notación científica.
-5. Hay que revisar la forma como definimos modelos, en caso de que requiera ajustes.
