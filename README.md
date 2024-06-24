@@ -1,22 +1,26 @@
 # Reglas generales
+  
+NOTA: Estas reglas están más pensadas para el analizador sintáctico (y semántico)  
+  
 Las variables tienen scope dependiendo de la estructura dentro de la cual fueron declaradas.
 El tamaño de los arreglos es inmutable una vez definidos.  
 Alfa, beta, tau y delta sólo pueden ser declaradas dentro de un modelo.  
 Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos.  
 Una variable no puede ser nombrada empezando con un número.  
+No hay posibilidad de declarar booleanos.  
 
 # Datos primitivos soportados
-Entero (Incluye - para negativos, no soporta + para positivos)  
-Real (Incluye - para negativos, no soporta + para positivos)  
-string (Símbolos entre "", son las rachas y cadenas.)  
-Char (Símbolos cualquieras, no es necesario que estén entre comillas ni nada, son las categorías.)
-Booleano (Está en discusión incluír la posibilidad de declararlo)  
+Entero (Incluye - para negativos, no soporta + para positivos, soporta números con notación científica)  
+Real (Incluye - para negativos, no soporta + para positivos, soporta números con notación científica)  
+string (Símbolos entre "", las rachas y cadenas es la misma notación, No se puede declarar en sí como string, sino como racha o cadena)  
+Char (Símbolos cualquieras, entre '')  
+Booleano (Aunque no se pueden declarar explicitamente)  
 
 # Estructuras de datos soportadas
-Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, soportan cualquier tipo de dato, se debe declarar su tamaño, el cual puede ser multidimensional)  
+Arreglos (Son sumamente flexibles, pueden tener cualquier tipo de dato dentro de ellos, incluyendo datos de tipos diferentes, las matrices en sí, se pueden definir como arreglos de arreglos)  
 
 # Operación de asignación
-**=:** Asignación  
+**=** Asignación  
 
 # Token Colon
 **:** Asignación dentro de modelo
@@ -79,11 +83,11 @@ Arreglos (Supongo que las matrices se pueden manejar como arreglos de arreglos, 
 **real:** Definición de una variable con un real.  
 **arreglo:** Definición de una variable que será un arreglo.  
 **cadena:** Definición de una cadena, la cual sería un string.  
+**simbolo:** Definición de un char.  
 
 ## Declaraciones de datos (teoría de rachas)
 **racha:** Definición de una racha, la cual sería un string.  
 **alfabeto:** Definición de un alfabeto, el cual sería un arreglo.  
-**categoria:** En sí las letras que componen el alfabeto, son char.  
 **alfa:** Definición del parámetro efecto del modelo (Es un real)  
 **tau:** Definición del parámetro efectos de los tratamientos (Es un arreglo)  
 **beta:** Definición del parámetro efectos de los bloques (Es un arreglo)  
