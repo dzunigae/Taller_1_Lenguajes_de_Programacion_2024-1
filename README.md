@@ -1,12 +1,9 @@
 # Reglas generales
-No existen las mayúsculas en este lenguaje, en caso de haber, se considerarán un error.  
 Las variables tienen scope dependiendo de la estructura dentro de la cual fueron declaradas.
 El tamaño de los arreglos es inmutable una vez definidos.  
 Alfa, beta, tau y delta sólo pueden ser declaradas dentro de un modelo.  
-Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos?.  
+Los modelos y alfabetos pueden cambiar sus valores internamente más no como asignaciones a nuevos objetos.  
 Una variable no puede ser nombrada empezando con un número.  
-
-Nuestro lenguaje puede ser de tipo abstracto.  
 
 # Datos primitivos soportados
 Entero (Incluye - para negativos, no soporta + para positivos)  
