@@ -101,6 +101,20 @@ lexer = lex.lex()
 # Ejemplo de uso del lexer
 if __name__ == "__main__":
     data = '''
+## Función de relaciones para valores y alfabeto
+funcion cadena alfabeto_y_valores(arreglo valores, alfabeto relacionado){
+    para(i = 0 hasta i == tamaño(valores)){
+        si(valores >= 0.0 y valores < 5.0){
+            retornar relacionado.posicion[0];
+        }sino si(valores >= 5.0 y valores < 7.0){
+            retornar relacionado.posicion[1];
+        }sino si(valores >= 7.0 y valores < 9.0){
+            retornar relacionado.posicion[2];
+        }sino si(valores >= 9.0 y valores < 10.0){
+            retornar relacionado.posicion[3];
+        }
+    }
+}
     '''
 
     lexer.input(data)

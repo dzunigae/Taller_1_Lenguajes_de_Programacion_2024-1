@@ -10,7 +10,7 @@ comentario #
 ## Declaraciones de datos y estructuras de datos comunes
 entero numero_1 = 11;
 real numero_x = (5.0/7.0) + (11.78+67.099) * 9.99; ## Los números reales deben tener si o si el "punto" que los distingue de los enteros.
-simbolo simbolo_x = 'p'
+simbolo simbolo_x = 'p';
 arreglo arreglo_x = [[4,5], 7.0, [9,0,0.809,[11,11.0]]]; ## Los arreglos son tremendamente flexibles, esta corresponde a una declaración explícita.
 arreglo arreglo_y[4] = []; ## Declaración implicita de un arreglo con 4 posiciones.
 
@@ -156,10 +156,8 @@ inicio_main
 
     ## Ejecución de funciones antes declaradas
 
-    mostrar_valor(numero_1);
     real real_1 = if(numero_x);
     arreglo arreglo_1 = switch(arreglo_x);
-    ciclos(arreglo_x,arreglo_y);
 
     ## Ejecución de funciones especiales de la teoría de rachas
 
